@@ -1,0 +1,1164 @@
+/*
+  ============================================================
+  CHALATEPET - GUÍA RÁPIDA PARA ESTUDIAR ESTE CSS
+  ============================================================
+  HTML = estructura.
+  CSS  = presentación.
+
+  Algunas ideas importantes:
+    .clase        -> selecciona elementos con class="clase"
+    #id           -> selecciona un elemento con id="..."
+    :hover        -> aplica estilos cuando pasas el cursor
+    @media        -> cambia el diseño según el tamaño de pantalla
+
+  En este proyecto usamos variables en :root para no repetir
+  los colores y medidas principales.
+
+  Ejemplo:
+    --green: #69b82b;
+
+  Luego podemos usar:
+    color: var(--green);
+
+  Así, si cambiamos el verde una sola vez, se actualiza
+  en todos los lugares donde se utilice.
+  ============================================================
+*/
+
+/* =========================================================
+   CHALATEPET - MAQUETACIÓN INICIAL
+   Blanco + verde + turquesa | Responsive
+   ========================================================= */
+
+:root {
+  --green: #69b82b;
+  --green-dark: #4e9620;
+  --green-light: #edf8e8;
+  --turquoise: #56c8c1;
+  --turquoise-light: #eafafa;
+  --dark: #17221d;
+  --text: #53605a;
+  --muted: #7a8580;
+  --white: #ffffff;
+  --light: #f7faf8;
+  --border: #e4ebe7;
+  --shadow: 0 16px 40px rgba(28, 55, 40, 0.08);
+  --radius: 18px;
+  --container: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* .container limita el ancho del contenido y lo centra. */
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.section-light {
+  background: var(--light);
+}
+
+/* ==================== NAVBAR ==================== */
+/* 
+  NAVBAR:
+  Controla la barra superior, logo, enlaces y botón de cita.
+  .site-header = contenedor fijo/pegajoso de la cabecera.
+  .navbar      = organiza sus elementos horizontalmente.
+*/
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(228, 235, 231, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--dark);
+}
+
+.brand > span:last-child > span {
+  color: var(--green);
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--green-light);
+  font-size: 1.2rem;
+}
+
+/* .nav-content agrupa los enlaces y el botón de agendar. */
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--green-dark);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--dark);
+}
+
+/* ==================== BUTTONS ==================== */
+/*
+  BOTONES:
+  .btn contiene las propiedades comunes.
+  .btn-primary y .btn-outline cambian la apariencia según
+  el tipo de botón.
+*/
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: var(--white);
+  background: var(--green);
+  box-shadow: 0 8px 20px rgba(105, 184, 43, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  color: var(--green-dark);
+  border-color: #b8d8ac;
+  background: var(--white);
+}
+
+.btn-outline:hover {
+  background: var(--green-light);
+}
+
+.btn-white {
+  color: var(--green-dark);
+  background: var(--white);
+}
+
+.btn-white:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* ==================== HERO ==================== */
+/*
+  HERO:
+  Es la primera sección que ve el usuario.
+  .hero-grid utiliza CSS Grid para crear dos columnas:
+  texto a la izquierda y elemento visual a la derecha.
+*/
+
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f4faf3 0%, #ffffff 65%);
+}
+
+/* CSS Grid: divide el hero en columnas. */
+.hero-grid {
+  min-height: 610px;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.eyebrow,
+.section-label {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 650px;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--green);
+}
+
+.hero-content > p {
+  max-width: 570px;
+  margin: 24px 0 30px;
+  color: var(--text);
+  font-size: 1.04rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 36px;
+}
+
+.hero-info div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.hero-info strong {
+  font-size: 1.05rem;
+}
+
+.hero-visual {
+  min-height: 500px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hero-blob {
+  position: absolute;
+  width: min(440px, 80%);
+  aspect-ratio: 1;
+  border-radius: 46% 54% 56% 44% / 47% 40% 60% 53%;
+  background: linear-gradient(145deg, #dff3d5, #bdebe6);
+  transform: rotate(-7deg);
+}
+
+.pet-placeholder {
+  position: relative;
+  z-index: 1;
+  width: 350px;
+  height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 48% 52% 50% 50% / 45% 45% 55% 55%;
+  background: linear-gradient(160deg, #ffffff, #f1f8f4);
+  box-shadow: 0 25px 70px rgba(34, 75, 53, 0.12);
+  font-size: 7rem;
+}
+
+.floating-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 13px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.floating-card strong,
+.floating-card small {
+  display: block;
+}
+
+.floating-card strong {
+  font-size: 0.76rem;
+}
+
+.floating-card small {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.floating-card-one {
+  left: 4%;
+  bottom: 17%;
+}
+
+.floating-card-two {
+  right: 2%;
+  top: 17%;
+}
+
+.floating-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+/* ==================== QUICK SERVICES ==================== */
+/*
+  ACCESOS RÁPIDOS:
+  .quick-grid crea tres columnas en computadora.
+  Más abajo, los @media queries convierten esas columnas
+  en una sola columna en pantallas pequeñas.
+*/
+
+
+.quick-services {
+  position: relative;
+  z-index: 5;
+  margin-top: -40px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.quick-card {
+  min-height: 132px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: 0.2s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+}
+
+.quick-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--green-light);
+  font-size: 1.4rem;
+}
+
+.quick-card h3 {
+  font-size: 0.94rem;
+}
+
+.quick-card p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.arrow {
+  color: var(--green);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ==================== HEADINGS ==================== */
+/*
+  TÍTULOS:
+  Estas reglas se reutilizan para mantener una jerarquía
+  visual consistente en las diferentes secciones.
+*/
+
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 45px;
+}
+
+.section-heading > p {
+  max-width: 390px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+/* ==================== ABOUT ==================== */
+/*
+  NOSOTROS:
+  .about-grid divide la sección en dos partes:
+  imagen a la izquierda y texto a la derecha.
+*/
+
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.about-image {
+  position: relative;
+  min-height: 500px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #dff4df, #d9f4f1);
+  text-align: center;
+  color: var(--green-dark);
+}
+
+.image-placeholder span {
+  margin-bottom: 15px;
+  font-size: 7rem;
+}
+
+.image-placeholder p {
+  font-weight: 800;
+}
+
+.image-placeholder small {
+  max-width: 230px;
+  margin-top: 4px;
+  color: var(--text);
+  font-size: 0.72rem;
+}
+
+.experience-card {
+  position: absolute;
+  right: -25px;
+  bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: var(--dark);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.experience-card strong {
+  font-size: 1rem;
+}
+
+.experience-card span {
+  margin-top: 2px;
+  color: #b9c7c0;
+  font-size: 0.72rem;
+}
+
+.about-content > p {
+  max-width: 580px;
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.about-points {
+  display: grid;
+  gap: 12px;
+  margin: 27px 0 30px;
+}
+
+.about-points div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-points span {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.about-points p {
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+/* ==================== SERVICES ==================== */
+/*
+  SERVICIOS:
+  .services-grid organiza las tarjetas.
+  En escritorio son tres columnas; en móvil pasan a una.
+*/
+
+
+/* Grid de tarjetas de servicios. */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.service-card {
+  padding: 27px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: var(--turquoise-light);
+  font-size: 1.3rem;
+}
+
+.service-card h3 {
+  font-size: 1rem;
+}
+
+.service-card p {
+  min-height: 51px;
+  margin: 8px 0 20px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.service-card a {
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.service-card a span {
+  margin-left: 5px;
+}
+
+.center-action {
+  margin-top: 38px;
+  text-align: center;
+}
+
+/* ==================== PET SHOP ==================== */
+/*
+  PET SHOP:
+  Cada .shop-card representa una categoría de productos.
+  Por ahora usamos emojis como placeholders; después reemplazarlos por fotografías reales.
+*/
+
+
+.pet-shop {
+  background: var(--white);
+}
+
+.text-link {
+  color: var(--green-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* Grid de categorías del Pet Shop. */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.shop-card {
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  padding: 25px;
+  border-radius: var(--radius);
+  transition: 0.2s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-4px);
+}
+
+.shop-food {
+  background: #e7f5e0;
+}
+
+.shop-accessories {
+  background: #def3f2;
+}
+
+.shop-vet {
+  background: #f0f4d8;
+}
+
+.shop-content {
+  position: relative;
+  z-index: 2;
+  max-width: 210px;
+}
+
+.shop-content > span {
+  color: var(--green-dark);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.shop-content h3 {
+  margin: 5px 0 13px;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.shop-content small {
+  font-weight: 800;
+  font-size: 0.73rem;
+}
+
+.shop-emoji {
+  position: absolute;
+  right: 16px;
+  top: 18px;
+  font-size: 6rem;
+  opacity: 0.9;
+}
+
+/* ==================== APPOINTMENT ==================== */
+/*
+  CITA:
+  Esta sección es un CTA (Call To Action): busca que el
+  visitante realice una acción concreta, agendar una cita.
+*/
+
+
+.appointment {
+  padding-top: 20px;
+  padding-bottom: 96px;
+}
+
+/* Caja visual del llamado a agendar una cita. */
+.appointment-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 50px 60px;
+  border-radius: 25px;
+  background: linear-gradient(125deg, var(--green), #58bfae);
+  color: var(--white);
+}
+
+.appointment-box .section-label {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.appointment-box h2 {
+  max-width: 620px;
+}
+
+.appointment-box p {
+  max-width: 610px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+/* ==================== CONTACT ==================== */
+/*
+  CONTACTO:
+  Presenta ubicación, teléfono/WhatsApp y horario.
+  Estos datos posteriormente podrán venir del backend
+  o de una configuración del negocio.
+*/
+
+
+.contact {
+  background: var(--light);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+}
+
+.contact-grid > div:first-child > p {
+  max-width: 480px;
+  margin-top: 18px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.contact-items {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.contact-item > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--green-light);
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.contact-item p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+/* ==================== FOOTER ==================== */
+/*
+  FOOTER:
+  Pie de página con enlaces secundarios y copyright.
+*/
+
+
+.footer {
+  padding: 60px 0 0;
+  background: #15201a;
+  color: var(--white);
+}
+
+/* Grid para organizar las columnas del footer. */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 50px;
+}
+
+.brand-footer {
+  color: var(--white);
+}
+
+.brand-footer p {
+  margin-top: 15px;
+}
+
+.footer-grid > div:first-child p {
+  max-width: 260px;
+  margin-top: 15px;
+  color: #aebbb4;
+  font-size: 0.76rem;
+}
+
+.footer-grid h3 {
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+}
+
+.footer-grid > div:not(:first-child) a {
+  display: block;
+  width: fit-content;
+  margin-bottom: 8px;
+  color: #aebbb4;
+  font-size: 0.74rem;
+}
+
+.footer-grid > div:not(:first-child) a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  margin-top: 45px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: #84938b;
+  font-size: 0.68rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+/*
+  RESPONSIVE:
+  @media permite cambiar el diseño según el ancho de pantalla.
+  Esto es lo que hace que la página se adapte a teléfono,
+  tablet y computadora.
+*/
+
+
+@media (max-width: 900px) {
+
+  .nav-content {
+    gap: 18px;
+  }
+
+  .nav-links {
+    gap: 17px;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid {
+    padding: 65px 0;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content > p {
+    margin-inline: auto;
+  }
+
+  .hero-actions,
+  .hero-info {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .about-grid {
+    gap: 45px;
+  }
+
+  .contact-grid {
+    gap: 45px;
+  }
+
+  .services-grid,
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-content {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: calc(100% + 8px);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .nav-content.open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 11px 5px;
+  }
+
+  .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-cta {
+    width: 100%;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    padding: 60px 0 30px;
+  }
+
+  .hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .hero-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .hero-visual {
+    min-height: 360px;
+  }
+
+  .pet-placeholder {
+    width: 260px;
+    height: 300px;
+    font-size: 5rem;
+  }
+
+  .hero-blob {
+    width: 300px;
+  }
+
+  .floating-card-one {
+    left: 0;
+    bottom: 10%;
+  }
+
+  .floating-card-two {
+    right: 0;
+    top: 9%;
+  }
+
+  .quick-services {
+    margin-top: 0;
+    padding-top: 18px;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .services-grid,
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image,
+  .image-placeholder {
+    min-height: 390px;
+    height: 390px;
+  }
+
+  .experience-card {
+    right: 10px;
+    bottom: 18px;
+  }
+
+  .appointment-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+  }
+
+  .appointment-box .btn {
+    width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 430px) {
+
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .floating-card {
+    padding: 10px 12px;
+  }
+
+  .floating-card-one {
+    left: -5px;
+  }
+
+  .floating-card-two {
+    right: -5px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: auto;
+  }
+}

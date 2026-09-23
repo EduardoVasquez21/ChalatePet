@@ -1,0 +1,418 @@
+<!--
+  ============================================================
+  CHALATEPET - GUÍA RÁPIDA PARA ESTUDIAR ESTE HTML
+  ============================================================
+  Este archivo contiene la estructura/contenido de la página.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChalatePet - Atención veterinaria profesional en Chalatenango, El Salvador.">
+  <title>ChalatePet | Clínica Veterinaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#" class="brand" aria-label="ChalatePet - Inicio">
+        <span class="brand-mark">🐾</span>
+        <span>Chalate<span>Pet</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-content">
+        <ul class="nav-links">
+          <li><a class="active" href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#pet-shop">Pet Shop</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <a href="#cita" class="btn btn-primary nav-cta">Agendar cita</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+          <span class="eyebrow">Atención veterinaria en Chalatenango</span>
+
+          <h1>
+            Cuidamos a quienes
+            <span>forman parte de tu familia.</span>
+          </h1>
+
+          <p>
+            Atención veterinaria profesional para perros y gatos,
+            con servicios pensados para cuidar su salud y bienestar.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#cita" class="btn btn-primary">Agendar cita</a>
+            <a href="#nosotros" class="btn btn-outline">Conocer ChalatePet</a>
+          </div>
+
+          <div class="hero-info">
+            <div>
+              <strong>🐶 🐱</strong>
+              <span>Atención para tus mascotas</span>
+            </div>
+            <div>
+              <strong>📍</strong>
+              <span>Chalatenango, El Salvador</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <div class="pet-placeholder">
+            <span>🐶</span>
+            <span>🐱</span>
+          </div>
+          <div class="floating-card floating-card-one">
+            <span class="floating-icon">♥</span>
+            <div>
+              <strong>Bienestar</strong>
+              <small>Primero tu mascota</small>
+            </div>
+          </div>
+          <div class="floating-card floating-card-two">
+            <span class="floating-icon">✓</span>
+            <div>
+              <strong>Atención</strong>
+              <small>Profesional</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== QUICK SERVICES ==================== -->
+    <section class="quick-services">
+      <div class="container quick-grid">
+
+        <a href="#servicios" class="quick-card">
+          <div class="quick-icon">🩺</div>
+          <div>
+            <h3>Consulta general</h3>
+            <p>Evaluación y atención veterinaria.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="#servicios" class="quick-card">
+          <div class="quick-icon">💉</div>
+          <div>
+            <h3>Vacunación</h3>
+            <p>Protección para tu mascota.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="#servicios" class="quick-card">
+          <div class="quick-icon">✚</div>
+          <div>
+            <h3>Esterilización</h3>
+            <p>Procedimientos con atención profesional.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="about section" id="nosotros">
+      <div class="container about-grid">
+
+        <div class="about-image">
+          <div class="image-placeholder">
+            <span>🐾</span>
+            <p>Imagen de ChalatePet</p>
+            <small>Aquí irá la fotografía de la clínica o una mascota.</small>
+          </div>
+          <div class="experience-card">
+            <strong>ChalatePet</strong>
+            <span>Salud y bienestar animal</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-label">Conoce ChalatePet</span>
+          <h2>Un espacio pensado para cuidar a tu mascota.</h2>
+          <p>
+            En ChalatePet buscamos ofrecer una atención veterinaria cercana,
+            profesional y enfocada en el bienestar de cada mascota.
+          </p>
+          <p>
+            Nuestra propuesta combina servicios veterinarios, seguimiento
+            clínico y una tienda con productos para el cuidado diario.
+          </p>
+
+          <div class="about-points">
+            <div>
+              <span>✓</span>
+              <p>Atención profesional</p>
+            </div>
+            <div>
+              <span>✓</span>
+              <p>Seguimiento de cada mascota</p>
+            </div>
+            <div>
+              <span>✓</span>
+              <p>Servicios y productos en un mismo lugar</p>
+            </div>
+          </div>
+
+          <a href="#contacto" class="btn btn-primary">Contactarnos</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section class="services section section-light" id="servicios">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">Atención veterinaria</span>
+            <h2>Nuestros servicios</h2>
+          </div>
+          <p>
+            Soluciones para las necesidades más importantes de la salud
+            y el cuidado de tu mascota.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon">🩺</div>
+            <h3>Consulta general</h3>
+            <p>Evaluación del estado de salud de tu mascota.</p>
+            <a href="#cita">Solicitar cita <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">💉</div>
+            <h3>Vacunación</h3>
+            <p>Aplicación y seguimiento del esquema de vacunación.</p>
+            <a href="#cita">Solicitar cita <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✚</div>
+            <h3>Esterilización</h3>
+            <p>Procedimientos de esterilización para perros y gatos.</p>
+            <a href="#cita">Solicitar cita <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">💊</div>
+            <h3>Desparasitación</h3>
+            <p>Opciones de prevención y control de parásitos.</p>
+            <a href="#cita">Solicitar cita <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏥</div>
+            <h3>Cirugías</h3>
+            <p>Procedimientos quirúrgicos según valoración veterinaria.</p>
+            <a href="#cita">Consultar <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🛁</div>
+            <h3>Aseo y baño</h3>
+            <p>Cuidado e higiene para mantener a tu mascota saludable.</p>
+            <a href="#cita">Consultar <span>→</span></a>
+          </article>
+
+        </div>
+
+        <div class="center-action">
+          <a href="#servicios" class="btn btn-outline">Ver todos los servicios</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PET SHOP ==================== -->
+    <section class="pet-shop section" id="pet-shop">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">Para el día a día</span>
+            <h2>Pet Shop</h2>
+          </div>
+          <a href="#" class="text-link">Ver tienda completa →</a>
+        </div>
+
+        <div class="shop-grid">
+
+          <a href="#" class="shop-card shop-food">
+            <div class="shop-content">
+              <span>Alimentación</span>
+              <h3>Alimentos para tu mascota</h3>
+              <small>Ver productos →</small>
+            </div>
+            <div class="shop-emoji">🥣</div>
+          </a>
+
+          <a href="#" class="shop-card shop-accessories">
+            <div class="shop-content">
+              <span>Accesorios</span>
+              <h3>Todo para su cuidado</h3>
+              <small>Ver productos →</small>
+            </div>
+            <div class="shop-emoji">🦴</div>
+          </a>
+
+          <a href="#" class="shop-card shop-vet">
+            <div class="shop-content">
+              <span>Productos veterinarios</span>
+              <h3>Cuidado y prevención</h3>
+              <small>Ver productos →</small>
+            </div>
+            <div class="shop-emoji">💊</div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== APPOINTMENT CTA ==================== -->
+    <section class="appointment section" id="cita">
+      <div class="container appointment-box">
+        <div>
+          <span class="section-label">Tu mascota primero</span>
+          <h2>¿Necesitas una consulta?</h2>
+          <p>
+            Solicita una cita, elige el servicio y consulta los horarios
+            disponibles para tu mascota.
+          </p>
+        </div>
+        <a href="#" class="btn btn-white">Agendar una cita</a>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact section" id="contacto">
+      <div class="container contact-grid">
+
+        <div>
+          <span class="section-label">Estamos para ayudarte</span>
+          <h2>Contáctanos</h2>
+          <p>
+            ¿Tienes alguna consulta? Ponte en contacto con nosotros
+            y te ayudaremos con gusto.
+          </p>
+        </div>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <span>📍</span>
+            <div>
+              <strong>Ubicación</strong>
+              <p>Chalatenango, El Salvador</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span>📱</span>
+            <div>
+              <strong>Teléfono / WhatsApp</strong>
+              <p>0000-0000</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span>🕐</span>
+            <div>
+              <strong>Horario</strong>
+              <p>Lunes a sábado · 8:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="brand brand-footer">
+          <span class="brand-mark">🐾</span>
+          <span>Chalate<span>Pet</span></span>
+        </a>
+        <p>Salud, cuidado y bienestar para tu mascota.</p>
+      </div>
+
+      <div>
+        <h3>ChalatePet</h3>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#pet-shop">Pet Shop</a>
+      </div>
+
+      <div>
+        <h3>Ayuda</h3>
+        <a href="#contacto">Contacto</a>
+        <a href="#cita">Agendar cita</a>
+        <a href="#">Iniciar sesión</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 ChalatePet. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navContent = document.querySelector('.nav-content');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      navContent.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        navContent.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
