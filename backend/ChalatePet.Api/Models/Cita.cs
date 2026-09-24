@@ -19,7 +19,7 @@ public class Cita
     public DateTime FechaCreacion { get; set; }
 
     // Relaciones
-    public Mascota Mascota { get; set; } = null!;
+    public Mascota? Mascota { get; set; } 
 
-    public Servicio Servicio { get; set; } = null!;
+    public Servicio? Servicio { get; set; } 
 }
