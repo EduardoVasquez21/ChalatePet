@@ -23,5 +23,5 @@ public class Mascota
     public bool Activo { get; set; } = true;
 
     // Relación con el propietario
-    public Cliente Cliente { get; set; } = null!;
+    public Cliente? Cliente { get; set; } 
 }
